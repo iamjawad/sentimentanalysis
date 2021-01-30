@@ -1,0 +1,19 @@
+.load-wrapper{
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    height: 100vh;
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.load-content{
+    width: fit-content;
+    margin: 0 auto;
+    top: 50%;
+    position: fixed;
+    left: 0;
+    right: 0;
+}

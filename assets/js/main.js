@@ -68,8 +68,10 @@ var app = new Vue({
             //   }).done(function(data) {
             //     this.textGroup.push({text: this.text, status: data});
             //   }.bind(this));
-
+            var el = document.getElementsByClassName('load-wrapper')[0];
+            el.classList.remove('d-none');
               var xmlHttp = new XMLHttpRequest();
+              
                 xmlHttp.onreadystatechange = function()
                 {
                     if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
@@ -77,9 +79,16 @@ var app = new Vue({
                         this.textGroup.push({text: this.text, status: xmlHttp.responseText});
                         // myChart.update();
                         showChart();
-                    }
+                        el.classList.add('d-none');
+                    } 
+
+                    if(xmlHttp.readyState == 4 && xmlHttp.status != 200)
+                    {
+                        el.classList.add('d-none');
+                    } 
                 }.bind(this)
                 xmlHttp.open("get", "https://cors-anywhere.herokuapp.com/http://159.65.138.171:8080/api/roman_urdu/" + this.text); 
+                // xmlHttp.setRequestHeader("Accept", "application/vnd.github.3.raw");
                 xmlHttp.send(); 
         },
         mark: function(status){
