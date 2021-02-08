@@ -123,7 +123,7 @@ var app = new Vue({
                             el.classList.add('d-none');
                         }
                     }.bind(this)
-                    xmlHttp.open("get", "https://cors-anywhere.herokuapp.com/http://159.65.138.171:8080/api/roman_urdu/" + element);
+                    xmlHttp.open("get", "http://159.65.138.171:8080/api/roman_urdu/" + element);
                     // xmlHttp.setRequestHeader("Accept", "application/vnd.github.3.raw");
                     xmlHttp.send();
                 });
